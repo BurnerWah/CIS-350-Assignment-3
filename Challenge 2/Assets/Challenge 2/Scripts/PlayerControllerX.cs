@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Jaden Pleasants
+ * Assignment 3
+ * Handles player inputs
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +18,7 @@ public class PlayerControllerX : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // On spacebar press, send dog
-        if (canSpawnDog && Input.GetKeyDown(KeyCode.Space)) {
+        if (!StateManager.hasGameEnded && canSpawnDog && Input.GetKeyDown(KeyCode.Space)) {
             Instantiate(dogPrefab, transform.position, dogPrefab.transform.rotation);
             canSpawnDog = false;
             StartCoroutine(UnlockSpawning());

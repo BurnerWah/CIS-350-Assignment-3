@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Jaden Pleasants
+ * Assignment 3
+ * Moves forward
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

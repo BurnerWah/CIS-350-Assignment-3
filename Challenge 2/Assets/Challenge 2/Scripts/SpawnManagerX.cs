@@ -1,16 +1,20 @@
-﻿using System.Collections;
+﻿/*
+ * Jaden Pleasants
+ * Assignment 3
+ * Automatically spawns random ball prefabs until the game ends.
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManagerX : MonoBehaviour {
     public GameObject[] ballPrefabs;
 
-    private float spawnLimitXLeft = -22;
-    private float spawnLimitXRight = 7;
-    private float spawnPosY = 30;
+    private readonly float spawnLimitXLeft = -22;
+    private readonly float spawnLimitXRight = 7;
+    private readonly float spawnPosY = 30;
 
-    private float startDelay = 1.0f;
-    private float spawnInterval = 4.0f;
+    private readonly float startDelay = 1.0f;
 
     // Start is called before the first frame update
     void Start() {
@@ -19,7 +23,7 @@ public class SpawnManagerX : MonoBehaviour {
 
     IEnumerator CoSpawner() {
         yield return new WaitForSeconds(startDelay);
-        while (true) {
+        while (!StateManager.hasGameEnded) {
             SpawnRandomBall();
             yield return new WaitForSeconds(Random.Range(3.0f, 5.0f));
         }
